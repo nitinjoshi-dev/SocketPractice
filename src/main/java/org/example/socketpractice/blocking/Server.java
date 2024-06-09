@@ -17,6 +17,7 @@ public class Server {
         try (ServerSocket serverSocket = new ServerSocket(port)) { //Creates and bind to the specified port
             System.out.println("Server started on port " + port);
             while (true) {
+                //Accepts the connection and send it to reading and writing to server handler
                 executor.execute(new ServerHandler(serverSocket.accept()));
             }
         } catch (Exception e) {
